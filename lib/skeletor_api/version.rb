@@ -1,4 +1,4 @@
 module SkeletorApi
-  VERSION = "0.1.0"
+  VERSION = "0.0.1"
   LATEST_API_VERSION = "1"
 end

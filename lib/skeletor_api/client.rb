@@ -12,7 +12,6 @@ module SkeletorApi
 
     protected
     def connection
-      puts BASE_URL
       @conn ||= Faraday.new(url: BASE_URL) do |conn|
         conn.request :versioned_request, version: SkeletorApi.config.api_version
         conn.request :api_key, key: SkeletorApi.config.api_key
