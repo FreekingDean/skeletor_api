@@ -14,15 +14,40 @@ gem 'skeletor_api'
 
 And then execute:
 
+```bash
     $ bundle
+```
 
 Or install it yourself as:
 
+```bash
     $ gem install skeletor_api
+```
+
+## Configuration
+
+If you are using rails you can configure it in an initializer:
+
+```ruby
+SkeletorApi.configure do |config|
+  config.api_key = Env.fetch('SKELETOR_KEY')
+end
+```
+
+If you would like to configure it at runtime do so like this:
+
+```ruby
+SkeletorApi::Client.new(api_key: ENV.fetch('SKELETOR_KEY'))
+```
+##### Note that this is currently broken as it will set the global key and not an instance key
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+client = SkeletorApi::Client.new
+slug = 'frontend-app'
+skeleton = client.get_skeleton(slug)
+```
 
 ## Development
 
@@ -32,7 +57,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/skeletor_api. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/FreekingDean/skeletor_api. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
